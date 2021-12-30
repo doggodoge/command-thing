@@ -1,24 +1,63 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import styles from './App.module.scss';
+
+interface Command {
+  name: string;
+  action: () => void;
+}
+
+interface CommandList {
+  commands: Command[];
+}
+
+function CommandPaletteSearchBar() {
+  const [text, setText] = useState('');
+
+  return (
+    <div>
+      <input type='text' value={text} onChange={e => setText(e.target.value)} />
+    </div>
+  );
+}
+
+function CommandPalette({ commands }: CommandList) {
+  const [search, setSearch] = useState('');
+  const [filteredList, setFilteredList] = useState(commands);
+
+  const handleFilterList = () => {
+    setFilteredList(filteredList.filter(item => item.name.includes(search)));
+  };
+
+  return (
+    <div>
+      <CommandPaletteSearchBar />
+      {filteredList.map(item => (
+        <div>
+          <button onClick={item.action}>{item.name}</button>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 function App() {
+  const someCommandList: Command[] = [
+    {
+      name: 'First command', action: () => {
+        console.log('Executed first command');
+      }
+    },
+    {
+      name: 'Second command', action: () => {
+        console.log('Executed second command');
+      }
+    }
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.app}>
+      <h1>Action Menu</h1>
+      <CommandPalette commands={someCommandList} />
     </div>
   );
 }
