@@ -1,0 +1,31 @@
+@import "../utils/Variables.module";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  transition: 100ms;
+  border-radius: 1em;
+
+  &:focus-within {
+    background-color: darken($background-color, 5%);
+    box-shadow: 0 0.2em 0.4em 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+.search {
+  display: flex;
+  width: 90%;
+  font-size: larger;
+  padding: 0.5em;
+  outline: none;
+  background-color: transparent;
+  border-radius: 1em;
+  border-style: none;
+  color: $font-color;
+}
+
+.return {
+  margin: 1em;
+}

@@ -1,0 +1,30 @@
+@import "utils/Variables.module";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 40em;
+  color: $font-color;
+  background-color: $background-color;
+  padding: 1em;
+  margin: 1em;
+  border-radius: 1em;
+  box-shadow: 0 1em 2em 0 rgba(0, 0, 0, 0.2);
+}
+
+.commandButton {
+  font-size: larger;
+  padding: 0.5em;
+  margin: 0.2em;
+  color: $font-color;
+  background-color: transparent;
+  border-style: none;
+  border-radius: 0.5em;
+  width: 90%;
+  transition: 100ms;
+
+  &:focus {
+    outline: none;
+    background-color: darken($background-color, 5%);
+  }
+}
