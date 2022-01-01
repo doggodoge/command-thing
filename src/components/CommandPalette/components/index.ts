@@ -1,3 +1,4 @@
+import ActionItem from './ActionItem';
 import CommandPaletteSearchBar from './CommandPaletteSearchBar';
 
-export default CommandPaletteSearchBar;
+export { ActionItem, CommandPaletteSearchBar };

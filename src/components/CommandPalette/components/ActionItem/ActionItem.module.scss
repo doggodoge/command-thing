@@ -1,0 +1,18 @@
+@import "../../utils/Variables.module";
+
+.actionItem {
+  font-size: larger;
+  padding: 0.5em;
+  margin: 0.2em;
+  color: $font-color;
+  background-color: transparent;
+  border-style: none;
+  border-radius: 0.5em;
+  width: 90%;
+  transition: 100ms;
+
+  &:focus {
+    outline: none;
+    background-color: darken($background-color, 5%);
+  }
+}
