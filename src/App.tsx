@@ -1,46 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './App.module.scss';
 import Command from './interfaces';
 import CommandPalette from './components';
 
-const commandList: Command[] = [
-  {
-    key: 1,
-    name: 'First Command',
-    action: () => {
-      console.log('Executed first command');
-    },
-  },
-  {
-    key: 2,
-    name: 'Second Command',
-    action: () => {
-      console.log('Executed second command');
-    },
-  },
-  {
-    key: 3,
-    name: 'Third Command',
-    action: () => {
-      console.log('Executed third command');
-    },
-  },
-  {
-    key: 4,
-    name: 'Fourth Command',
-    action: () => {
-      console.log('Executed fourth command');
-    },
-  },
-];
-
 function App() {
+  const [clickedButton, setClickedButton] = useState('');
+
+  const commands: Command[] = [
+    {
+      name: 'First Command',
+      action: () => {
+        setClickedButton('First command activated');
+      },
+    },
+    {
+      name: 'Second Command',
+      action: () => {
+        setClickedButton('Second command activated');
+      },
+    },
+    {
+      name: 'Third Command',
+      action: () => {
+        setClickedButton('Third command activated');
+      },
+    },
+    {
+      name: 'Fourth Command',
+      action: () => {
+        setClickedButton('Fourth command activated');
+      },
+    },
+  ];
+
   return (
     <div className={styles.app}>
       <header>
         <h1>Action Menu</h1>
       </header>
-      <CommandPalette commands={commandList} />
+      <CommandPalette commands={commands} />
+      <p>{clickedButton}</p>
     </div>
   );
 }

@@ -1,10 +1,10 @@
-@import "../../utils/Variables.module";
+@import "../../utils/variables.module";
 
 .actionItem {
   font-size: larger;
   padding: 0.5em;
   margin: 0.2em;
-  color: $font-color;
+  color: $color;
   background-color: transparent;
   border-style: none;
   border-radius: 0.5em;

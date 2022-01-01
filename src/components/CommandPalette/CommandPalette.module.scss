@@ -1,10 +1,10 @@
-@import "utils/Variables.module";
+@import "utils/variables.module";
 
 .container {
   display: flex;
   flex-direction: column;
   max-width: 40em;
-  color: $font-color;
+  color: $color;
   background-color: $background-color;
   padding: 1em;
   margin: 1em;
@@ -16,7 +16,7 @@
   font-size: larger;
   padding: 0.5em;
   margin: 0.2em;
-  color: $font-color;
+  color: $color;
   background-color: transparent;
   border-style: none;
   border-radius: 0.5em;

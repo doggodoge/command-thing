@@ -1,4 +1,4 @@
-@import "../../utils/Variables.module";
+@import "../../utils/variables.module";
 
 .container {
   display: flex;
@@ -23,7 +23,7 @@
   background-color: transparent;
   border-radius: 1em;
   border-style: none;
-  color: $font-color;
+  color: $color;
 }
 
 .clear {
@@ -31,7 +31,7 @@
   margin: 1em;
   border-radius: 0.2em;
   border-style: none;
-  color: $font-color;
+  color: $color;
   background-color: transparent;
 
   &:hover {

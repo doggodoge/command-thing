@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ActionItem, CommandPaletteSearchBar } from './components';
-import styles from './CommandPalette.module.scss';
 import Command from '../../interfaces/Command';
+import styles from './CommandPalette.module.scss';
 
 function CommandPalette({ commands }: CommandPaletteProps) {
   const [filteredCommands, setFilteredCommands] = useState(commands);
@@ -18,7 +18,7 @@ function CommandPalette({ commands }: CommandPaletteProps) {
     <div className={styles.container}>
       <CommandPaletteSearchBar onSearchChange={onSearchChange} />
       {filteredCommands.map(command => (
-        <div key={command.key}>
+        <div key={command.name}>
           <ActionItem item={command} />
         </div>
       ))}
