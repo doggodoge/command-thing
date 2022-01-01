@@ -19,7 +19,9 @@ function CommandPalette({ commands }: CommandPaletteProps) {
       <CommandPaletteSearchBar onSearchChange={onSearchChange} />
       {filteredList.map(item => (
         <div key={item.key}>
-          <button className={styles.commandButton} onClick={item.action}>{item.name}</button>
+          <button className={styles.commandButton} onClick={item.action}>
+            {item.name}
+          </button>
         </div>
       ))}
     </div>

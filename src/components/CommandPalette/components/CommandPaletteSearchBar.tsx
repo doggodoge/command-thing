@@ -6,8 +6,9 @@ function CommandPaletteSearchBar({
 }: CommandPaletteSearchBarProps) {
   const [text, setText] = useState('');
 
-  const handleReturn = () => {
-    console.log('pressed return');
+  const handleChange = (newText: string) => {
+    setText(newText);
+    onSearchChange(newText);
   };
 
   return (
@@ -16,12 +17,11 @@ function CommandPaletteSearchBar({
         className={styles.search}
         type="text"
         value={text}
-        onChange={e => {
-          setText(e.target.value);
-          onSearchChange(e.target.value);
-        }}
+        onChange={e => handleChange(e.target.value)}
       />
-      <div className={styles.return} onClick={handleReturn}>⮐</div>
+      <button className={styles.clear} onClick={() => handleChange('')}>
+        ×
+      </button>
     </div>
   );
 }

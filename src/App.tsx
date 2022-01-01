@@ -30,14 +30,16 @@ const commandList: Command[] = [
     name: 'Fourth Command',
     action: () => {
       console.log('Executed fourth command');
-    }
-  }
+    },
+  },
 ];
 
 function App() {
   return (
     <div className={styles.app}>
-      <h1>Action Menu</h1>
+      <header>
+        <h1>Action Menu</h1>
+      </header>
       <CommandPalette commands={commandList} />
     </div>
   );

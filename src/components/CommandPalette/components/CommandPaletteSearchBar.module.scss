@@ -26,6 +26,19 @@
   color: $font-color;
 }
 
-.return {
+.clear {
+  font-size: larger;
   margin: 1em;
+  border-radius: 0.2em;
+  border-style: none;
+  color: $font-color;
+  background-color: transparent;
+
+  &:hover {
+    background-color: darken($background-color, 10%);
+  }
+
+  &:active {
+    background-color: darken($background-color, 12%);
+  }
 }
