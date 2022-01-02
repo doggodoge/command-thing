@@ -6,7 +6,7 @@ import styles from './CommandPalette.module.scss';
 function CommandPalette({ commands }: CommandPaletteProps) {
   const [filteredCommands, setFilteredCommands] = useState(commands);
 
-  const onSearchChange = (newSearch: string) => {
+  const handleSearchChange = (newSearch: string) => {
     setFilteredCommands(
       commands.filter(item =>
         item.name.toLowerCase().includes(newSearch.toLowerCase())
@@ -16,7 +16,7 @@ function CommandPalette({ commands }: CommandPaletteProps) {
 
   return (
     <div className={styles.container}>
-      <CommandPaletteSearchBar onSearchChange={onSearchChange} />
+      <CommandPaletteSearchBar onSearchChange={handleSearchChange} />
       {filteredCommands.map(command => (
         <div key={command.name}>
           <ActionItem item={command} />

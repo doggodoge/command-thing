@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './App.module.scss';
 import Command from './interfaces';
 import CommandPalette from './components';
