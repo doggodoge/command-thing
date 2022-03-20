@@ -2,9 +2,12 @@ import { useState } from 'react';
 import styles from './App.module.scss';
 import Command from './interfaces';
 import CommandPalette from './components';
+import { useKeyboardShortcuts } from './hooks';
 
 function App() {
   const [clickedButton, setClickedButton] = useState('');
+
+  const isCommandPaletteOpen = useKeyboardShortcuts();
 
   const commands: Command[] = [
     {
@@ -30,7 +33,7 @@ function App() {
       action: () => {
         setClickedButton('Fourth command activated');
       },
-    },
+    }
   ];
 
   return (
@@ -38,7 +41,14 @@ function App() {
       <header>
         <h1>Action Menu</h1>
       </header>
-      <CommandPalette commands={commands} />
+      <p>
+        Press the <kbd>⌘</kbd> + <kbd>shift</kbd> + <kbd>k</kbd> key to open the
+        command palette.
+      </p>
+      <p>
+        Press <kbd>Escape</kbd> to close the command palette.
+      </p>
+      <CommandPalette commands={commands} isOpen={isCommandPaletteOpen} />
       <p>{clickedButton}</p>
     </div>
   );

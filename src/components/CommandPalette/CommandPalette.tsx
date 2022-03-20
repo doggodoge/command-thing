@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, {KeyboardEventHandler, useState} from 'react';
 import { ActionItem, CommandPaletteSearchBar } from './components';
 import Command from '../../interfaces/Command';
 import styles from './CommandPalette.module.scss';
 
-function CommandPalette({ commands }: CommandPaletteProps) {
+function CommandPalette({ isOpen, commands }: CommandPaletteProps) {
   const [filteredCommands, setFilteredCommands] = useState(commands);
 
   const handleSearchChange = (newSearch: string) => {
@@ -14,7 +14,7 @@ function CommandPalette({ commands }: CommandPaletteProps) {
     );
   };
 
-  return (
+  return isOpen ? (
     <div className={styles.container}>
       <CommandPaletteSearchBar onSearchChange={handleSearchChange} />
       {filteredCommands.map(command => (
@@ -23,10 +23,11 @@ function CommandPalette({ commands }: CommandPaletteProps) {
         </div>
       ))}
     </div>
-  );
+  ) : null;
 }
 
 interface CommandPaletteProps {
+  isOpen: boolean;
   commands: Command[];
 }
 
