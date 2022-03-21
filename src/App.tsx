@@ -7,7 +7,8 @@ import { useKeyboardShortcuts } from './hooks';
 function App() {
   const [clickedButton, setClickedButton] = useState('');
 
-  const isCommandPaletteOpen = useKeyboardShortcuts();
+  const { isCommandPaletteOpen, setIsCommandPaletteOpen } =
+    useKeyboardShortcuts();
 
   const commands: Command[] = [
     {
@@ -33,8 +34,12 @@ function App() {
       action: () => {
         setClickedButton('Fourth command activated');
       },
-    }
+    },
   ];
+
+  const onClickOpenButton = () => {
+    setIsCommandPaletteOpen(true);
+  };
 
   return (
     <div className={styles.app}>
@@ -45,6 +50,12 @@ function App() {
         Press the <kbd>⌘</kbd> + <kbd>shift</kbd> + <kbd>k</kbd> key to open the
         command palette.
       </p>
+      <div>
+        <label htmlFor="open-button">Or open it with: </label>
+        <button id="open-button" onClick={onClickOpenButton}>
+          Open
+        </button>
+      </div>
       <p>
         Press <kbd>Escape</kbd> to close the command palette.
       </p>

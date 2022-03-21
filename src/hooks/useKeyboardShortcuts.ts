@@ -1,6 +1,9 @@
 import { useState, useCallback, useEffect } from 'react';
 
-function useKeyboardShortcuts(): boolean {
+function useKeyboardShortcuts(): {
+  isCommandPaletteOpen: boolean;
+  setIsCommandPaletteOpen: (isCommandPaletteOpen: boolean) => void;
+} {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const handleKeyPress = useCallback((event: KeyboardEvent) => {
     if (
@@ -22,7 +25,7 @@ function useKeyboardShortcuts(): boolean {
     };
   }, [handleKeyPress]);
 
-  return isCommandPaletteOpen;
+  return { isCommandPaletteOpen, setIsCommandPaletteOpen };
 }
 
 export default useKeyboardShortcuts;
